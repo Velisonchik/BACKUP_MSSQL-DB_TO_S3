@@ -1,0 +1,7 @@
+SERVER = 'host'
+DB = 'database name'
+USER = 'username'
+PASSWORD = 'password'
+access_key_s3 = ''
+secret_key_s3 = ''
+minio_server = ''
