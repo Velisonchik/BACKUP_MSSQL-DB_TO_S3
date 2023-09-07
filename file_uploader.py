@@ -1,3 +1,4 @@
+import sys
 from datetime import datetime
 from minio import Minio
 from DB_req import *
@@ -17,11 +18,11 @@ def write_log(text):
         log.write(f'{current_datetime} - {text}\n')
 
 
-def upload_bak(bak_file_name, bak_file_path):
+def upload_file(bak_file_name, bak_file_path):
     try:
         client = connect_minio()
-        client.fput_object("rdm-database", bak_file_name, bak_file_path)
-        write_log('Backup upload to S3 successfully')
+        client.fput_object(backet_name, bak_file_name, bak_file_path)
+        write_log('File upload to S3 successfully')
     except Exception as e:
         write_log(e)
     finally:
@@ -37,3 +38,7 @@ def del_obj(bucket_name, obj_name):
         write_log(e)
     finally:
         client.close()
+
+
+if __name__ == '__main__':
+    upload_file(sys.argv[1], sys.argv[2])

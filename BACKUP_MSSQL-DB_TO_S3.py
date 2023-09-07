@@ -27,4 +27,5 @@ if __name__ == '__main__':
     current_date = datetime.now().date()
     backup_file = f"C:\\Backup\\rdm_{current_date}.bak"
     if main():
-        upload_bak(f'rdm_{current_date}.bak', backup_file)
+        upload_file(f'rdm_{current_date}.bak', backup_file)
+
